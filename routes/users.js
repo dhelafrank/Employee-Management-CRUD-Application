@@ -7,3 +7,7 @@ router.get('/', function(req, res, next) {
 });
 
 module.exports = router;
+
+
+//In the future this route will be responsible for manageing different users that may use the software
+//each user may have their own permissions for modifying aspects of the data

@@ -10,7 +10,7 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 const PORT = process.env.PORT || 3000
-connectToDatabase("Up and Running")
+//connectToDatabase("Up and Running")
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

@@ -7,6 +7,8 @@ const {connectToDatabase} = require("./database")
 
 var viewRouter = require('./routes/views');
 var usersRouter = require('./routes/users');
+var employeesRouter = require('./routes/employees')
+var departmentsRouter = require('./routes/department')
 
 var app = express();
 const PORT = process.env.PORT || 3000
@@ -24,6 +26,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', viewRouter);
 app.use('/users', usersRouter);
+app.use('/departments', departmentsRouter)
+app.use('/employees', employeesRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

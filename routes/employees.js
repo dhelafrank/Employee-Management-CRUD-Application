@@ -1,5 +1,7 @@
 const express = require('express')
 const router = express.Router()
+const employeesClass = require('../controllers/employees')
+const employees = new employeesClass()
 
 router.get("/all", async (req, res, next) => {
 

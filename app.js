@@ -11,7 +11,7 @@ var employeesRouter = require('./routes/employees')
 var departmentsRouter = require('./routes/departments')
 
 var app = express();
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT || 3000
 //connectToDatabase("Up and Running")
 
 // view engine setup

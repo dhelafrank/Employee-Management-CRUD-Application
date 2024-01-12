@@ -41,7 +41,9 @@ nav .userIcon {
     border-radius: 50%;
     cursor: pointer;
 }
-
+section{
+    display: flex;
+}
 .sidebar {
     height: 90vh;
     background: var(--light-color);
@@ -69,10 +71,21 @@ nav .userIcon {
     background: color-mix(in srgb, var(--dark-color) 20%, #00000000);
 }
 
+.sidebar ul li a {
+    text-decoration: none;
+    color: var(--dark-color);
+}
+
 .active {
     background: color-mix(in srgb, var(--dark-color) 50%, #00000000);
 }
 
+.sidebar ul li.active a {
+    color: var(--light-color);
+}
+.contents{
+    color: var(--light-color);
+}
 * {
     /* outline: .5px dashed red; */
 }

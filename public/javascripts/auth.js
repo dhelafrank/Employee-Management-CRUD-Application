@@ -31,6 +31,6 @@ async function authDecision(data) {
         alert(data.message)
         return
     }
-    window.location.href = "/home"
+    window.location.href = data.redirect
     session.setItem('currentUserInfo', JSON.stringify(data.data))
 }

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | <%=organisation%> - <%=projectName%></title>
-    <link rel="stylesheet" href="/stylesheets/home.css">
+    <title><%=screenTitle%> | <%=organisation%> - <%=projectName%></title>
+    <link rel="stylesheet" href="/stylesheets/dash.css">
 </head>
 <body>
     <div class="container">
@@ -23,11 +23,13 @@
             <div class="userIcon"></div>
         </nav>
         <section>
+
             <div class="sidebar">
-                <ul>
-                    <li class="active">Employees</li>
-                    <li>Departments</li>
-                </ul>
+               <%-menu%>
+            </div>
+
+            <div class="contents">
+                <h1 class="screenTitle"><%=screenTitle%></h1>
             </div>
         </section>
     </div>

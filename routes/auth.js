@@ -10,6 +10,7 @@ router.post('/login', async (req, res, next) => {
 
   try {
     await login(dataRecieved, (responseObject) => {
+      responseObject.redirect = "/dash"
       res.status(responseObject.statusCode).json(responseObject)
     })
   } catch (error) {

@@ -1,0 +1,8 @@
+@import url("./style.css") all;
+@import url("./frame.css") all;
+body{
+    background: color-mix(in srgb, var(--dark-color) 60%, var(--light-color));
+}
+.contents{
+    padding: 1.5rem 0 0 2rem;
+}

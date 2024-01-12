@@ -22,9 +22,10 @@ const login = async (loginData, responseCallback) => {
     } = loginData
 
     let user = admin
-
-    if (!email == user.emailAddress) {
+    
+    if ((email == user.emailAddress) == false) {
         responseCallback({
+            statusCode: 403,
             status: false,
             message: "User does not exist",
             data: []
@@ -33,8 +34,9 @@ const login = async (loginData, responseCallback) => {
     }
 
     //Password will be Unhashed here in the future
-    if (!password == user.password) {
+    if ((password == user.password) == false) {
         responseCallback({
+            statusCode: 403,
             status: false,
             message: "Invalid Login Credentials",
             data: []
@@ -42,8 +44,12 @@ const login = async (loginData, responseCallback) => {
         return
     }
 
-    const {passwordHash, ...loggedInUser} = user
+    const {
+        passwordHash,
+        ...loggedInUser
+    } = user
     responseCallback({
+        statusCode: 200,
         status: true,
         message: "Login Success",
         data: [loggedInUser]

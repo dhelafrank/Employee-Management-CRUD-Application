@@ -16,8 +16,8 @@
         </div>
         <form action="/home" method="get" id="login-form">
             <div class="input-section"> 
-                <input type="email" name="" id="email" class="input" placeholder="Email Address">
-                <input type="password" name="" id="password" class="input" placeholder="Password">
+                <input type="email" name="" id="email" class="input" placeholder="Email Address" required>
+                <input type="password" name="" id="password" class="input" placeholder="Password" required>
             </div>
             <div class="action-section">
                 <input type="submit" value="Login" class="btn primary-btn">
@@ -25,6 +25,8 @@
             </div>
         </form>
     </div>
+
+    <script type="module" src="/javascripts/auth.js"></script>
 </body>
 
 </html>

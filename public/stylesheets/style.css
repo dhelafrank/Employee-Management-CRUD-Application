@@ -1,5 +1,7 @@
 :root {
   --primary-color: #00B7FF;
+  --dark-color:#000;
+  --light-color:#fff;
   --default-font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 a{
@@ -22,7 +24,7 @@ body {
 }
 
 .input:focus {
-  border: .5px solid #fff;
+  border: .5px solid var(--light-color);
 }
 
 .btn {
@@ -36,7 +38,7 @@ body {
   border-radius: 5px;
   padding: .5rem 3rem;
   background: var(--primary-color);
-  color: #fff;
+  color: var(--light-color);
 }
 
 .primary-btn:hover {
@@ -45,11 +47,19 @@ body {
 
 .ghost-btn{
   border-radius: 5px;
-  border:.5px solid #fff;
-  color:#fff;
+  border:.5px solid var(--light-color);;
+  color:var(--light-color);;
   background: #0000006e;
   padding: .5rem 3rem;
 }
 .ghost-btn:hover{
   background: transparent;
+}
+.mobile-nav{
+  display: none;
+}
+@media (max-width:700px) {
+  .desktop-nav{
+    display: none;
+  }
 }

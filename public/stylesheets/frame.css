@@ -1,0 +1,38 @@
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    background: var(--light-color);
+}
+
+.searchBox {
+    width: 25vw;
+    max-width: 15rem;
+    padding: .4rem .3rem;
+    border: .5px solid var(--dark-color);
+    border-radius: 3px;
+
+    overflow: hidden;
+}
+
+.searchBox input {
+    border: none;
+    outline: none;
+    width: 85%;
+    background: transparent;
+}
+.searchBox i{
+    cursor: pointer;
+}
+nav .userIcon {
+    width: 35px;
+    height: 35px;
+    background: #000;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+* {
+    /* outline: .5px dashed red; */
+}

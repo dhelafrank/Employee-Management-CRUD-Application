@@ -4,8 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | <%=organisation%> - <%=projectName%></title>
+    <link rel="stylesheet" href="/stylesheets/home.css">
 </head>
 <body>
-    
+    <div class="container">
+        <nav class="desktop-nav">
+            <h1 class="identityHeading"><%=organisation%></h1>
+            <div class="searchBox">
+                <input type="text" placeholder="Employees, Departments...">
+                <i class="fa-magnifying-lens">O</i>
+            </div>
+            <div class="userIcon"></div>
+        </nav>
+        <nav class="mobile-nav">
+            <i class="fa-bars"></i>
+            <div class="searchBox">
+            </div>
+            <div class="userIcon"></div>
+        </nav>
+        <section>
+            <div class="sidebar">
+                <ul>
+                    <li>Employees</li>
+                    <li>Departments</li>
+                </ul>
+            </div>
+        </section>
+    </div>
 </body>
 </html>

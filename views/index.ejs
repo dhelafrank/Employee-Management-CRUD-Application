@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%=title%></title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title><%=organisation%> - <%=projectName%></title>
+    <link rel="stylesheet" href="/stylesheets/index.css">
 </head>
+
 <body>
-    <h1><%=organisation%></h1>
+    <div class="container">
+        <h1><%=organisation%><br><span><%=projectName%></span></h1>
+        <form action="" method="">
+            <div class="input-section"> 
+                <input type="email" name="" id="email" class="input" placeholder="Email Address">
+                <input type="password" name="" id="password" class="input" placeholder="Password">
+            </div>
+            <input type="submit" value="Login" class="btn primary-btn">
+        </form>
+    </div>
 </body>
+
 </html>

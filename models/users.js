@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const departments = require('./department')
 
-const employeesSchema = new mongoose.Schema({
+const usersSchema = new mongoose.Schema({
     _id: {
         type: Number
     },
@@ -17,17 +17,17 @@ const employeesSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    dateOfBirth: {
+    emailAddress:{
+        type:String,
+        required:true
+    },
+    permission: {
         type: Number,
         required: true
     },
-    dateOfEmployement: {
-        type: Number,
-        required: true
-    },
-    departments: {
-        type: [departments._id],
-        default: []
+    passwordHash:{
+        type:String,
+        required:true
     },
     createdAt: {
         type:Number,
@@ -35,7 +35,7 @@ const employeesSchema = new mongoose.Schema({
     }
 })
 
-const employees = mongoose.model('employees', employeesSchema)
+const users = mongoose.model('users', usersSchema)
 module.exports = {
-    employees
+    users
 }

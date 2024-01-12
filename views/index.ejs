@@ -14,12 +14,15 @@
             <h1><%=organisation%></h1>
             <p><%=projectName%></p>
         </div>
-        <form action="/home" method="get">
+        <form action="/home" method="get" id="login-form">
             <div class="input-section"> 
                 <input type="email" name="" id="email" class="input" placeholder="Email Address">
                 <input type="password" name="" id="password" class="input" placeholder="Password">
             </div>
-            <input type="submit" value="Login" class="btn primary-btn">
+            <div class="action-section">
+                <input type="submit" value="Login" class="btn primary-btn">
+                <a class="btn ghost-btn" href="https://github.com/dhelafrank/Employee-Management-CRUD-Application">Github</a>
+            </div>
         </form>
     </div>
 </body>

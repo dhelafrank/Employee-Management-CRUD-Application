@@ -2,7 +2,9 @@
   --primary-color: #00B7FF;
   --default-font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-
+a{
+  text-decoration: none;
+}
 body {
   padding: 0;
   margin: 0;
@@ -27,6 +29,7 @@ body {
   border: none;
   font-family: var(--default-font-family);
   cursor: pointer;
+  transition: .5s ease-in-out;
 }
 
 .primary-btn {
@@ -38,4 +41,15 @@ body {
 
 .primary-btn:hover {
   background: #014661;
+}
+
+.ghost-btn{
+  border-radius: 5px;
+  border:.5px solid #fff;
+  color:#fff;
+  background: #0000006e;
+  padding: .5rem 3rem;
+}
+.ghost-btn:hover{
+  background: transparent;
 }

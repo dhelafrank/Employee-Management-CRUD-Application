@@ -48,6 +48,12 @@ form .btn {
 }
 
 @media (max-width:700px) {
+    .container form .input{
+        padding:1rem .5rem;
+    }
+    .container form .btn{
+        padding: 1rem 2rem;
+    }
     .container .featured-text p {
         font-size: 1.5rem;
     }

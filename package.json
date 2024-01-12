@@ -97,7 +97,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dhelafrank/Emplyee-Management-CRUD-Application.git"
+    "url": "git+https://github.com/dhelafrank/Employee-Management-CRUD-Application.git"
   },
   "keywords": [
     "CRUD",
@@ -106,7 +106,7 @@
   "author": "Ubongabasi Jerome",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dhelafrank/Emplyee-Management-CRUD-Application/issues"
+    "url": "https://github.com/dhelafrank/Employee-Management-CRUD-Application/issues"
   },
-  "homepage": "https://github.com/dhelafrank/Emplyee-Management-CRUD-Application#readme"
+  "homepage": "https://github.com/dhelafrank/Employee-Management-CRUD-Application#readme"
 }

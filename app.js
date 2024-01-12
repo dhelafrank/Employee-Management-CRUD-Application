@@ -6,12 +6,12 @@ var logger = require('morgan');
 const {connectToDatabase} = require("./database")
 
 var viewRouter = require('./routes/views');
-var usersRouter = require('./routes/users');
+var authRouter = require('./routes/auth');
 var employeesRouter = require('./routes/employees')
 var departmentsRouter = require('./routes/departments')
 
 var app = express();
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3001
 //connectToDatabase("Up and Running")
 
 // view engine setup
@@ -25,7 +25,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', viewRouter);
-app.use('/users', usersRouter);
+app.use('/auth', authRouter);
 app.use('/departments', departmentsRouter)
 app.use('/employees', employeesRouter)
 

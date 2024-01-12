@@ -1,6 +1,6 @@
 :root {
   --primary-color: #00B7FF;
-  --default-font-family:"Lucida Grande", Helvetica, Arial, sans-serif;
+  --default-font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 body {
@@ -9,7 +9,7 @@ body {
   font-family: var(--default-font-family);
 }
 
-.input{
+.input {
   background: #0000006e;
   border: none;
   border-radius: 5px;
@@ -18,20 +18,24 @@ body {
   padding: .3rem .5rem;
   outline: none;
 }
-.input:focus{
+
+.input:focus {
   border: .5px solid #fff;
 }
-.btn{
-  border:none;
+
+.btn {
+  border: none;
   font-family: var(--default-font-family);
   cursor: pointer;
 }
-.primary-btn{
+
+.primary-btn {
   border-radius: 5px;
   padding: .5rem 3rem;
   background: var(--primary-color);
   color: #fff;
 }
-.primary-btn:hover{
-background: #014661;
+
+.primary-btn:hover {
+  background: #014661;
 }

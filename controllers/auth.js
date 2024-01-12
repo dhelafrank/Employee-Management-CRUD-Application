@@ -34,7 +34,7 @@ const login = async (loginData, responseCallback) => {
     }
 
     //Password will be Unhashed here in the future
-    if ((password == user.password) == false) {
+    if ((password == user.passwordHash) == false) {
         responseCallback({
             statusCode: 403,
             status: false,

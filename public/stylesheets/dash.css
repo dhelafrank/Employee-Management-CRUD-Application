@@ -3,6 +3,31 @@
 body{
     background: color-mix(in srgb, var(--dark-color) 60%, var(--light-color));
 }
-.contents{
-    padding: 1.5rem 0 0 2rem;
+.contents ul li{
+    margin:1rem 0;
+    cursor: pointer;
+}
+.contents ul li div{
+    background: var(--light-color);
+    color: var(--dark-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 70svw;
+    border-radius: 3px;
+    padding: 0 1rem;
+    box-shadow: 0 2px 7px color-mix(in srgb, var(--dark-color) 60%, var(--light-color));
+}
+.contents ul li div:hover{
+    box-shadow: 0 5px 7px color-mix(in srgb, var(--dark-color) 75%, var(--light-color));
+}
+@media(max-width:1000px) {
+    .contents ul li div{
+        width: 65svw;
+    }
+}
+@media(max-width:800px) {
+    .contents ul li div{
+        width: 55svw;
+    }
 }

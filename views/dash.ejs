@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%=screenTitle%> | <%=organisation%> - <%=projectName%></title>
     <link rel="stylesheet" href="/stylesheets/dash.css">
 </head>
+
 <body>
     <div class="container">
         <nav class="desktop-nav">
@@ -25,13 +27,16 @@
         <section>
 
             <div class="sidebar">
-               <%-menu%>
+                <%-menu%>
             </div>
 
             <div class="contents">
                 <h1 class="screenTitle"><%=screenTitle%></h1>
+                <%-contents%>
             </div>
         </section>
     </div>
+    <script type="module" src="/javascripts/dash.js"></script>
 </body>
+
 </html>

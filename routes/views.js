@@ -21,7 +21,8 @@ router.get('/dash', validationMiddleware, async (req, res, next) => {
     organisation: process.env.ORGANISATION_NAME,
     projectName: process.env.PROJECT_NAME,
     screenTitle: "Dashboard",
-    menu: dashTemp.menu()
+    menu: dashTemp.menu(),
+    contents:dashTemp.contents()
   });
 });
 
@@ -30,7 +31,8 @@ router.get('/employees', validationMiddleware, async (req, res, next) => {
     organisation: process.env.ORGANISATION_NAME,
     projectName: process.env.PROJECT_NAME,
     screenTitle: "Employees",
-    menu: employeesTemp.menu()
+    menu: employeesTemp.menu(),
+    contents:await employeesTemp.contents()
   });
 });
 
@@ -39,7 +41,8 @@ router.get('/departments', validationMiddleware, async (req, res, next) => {
     organisation: process.env.ORGANISATION_NAME,
     projectName: process.env.PROJECT_NAME,
     screenTitle: "Departments",
-    menu: departmentsTemp.menu()
+    menu: departmentsTemp.menu(),
+    contents:departmentsTemp.contents()
   });
 });
 

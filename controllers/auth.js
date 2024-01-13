@@ -50,8 +50,7 @@ const login = async (loginData, res, responseCallback) => {
     } = user
 
     const cookieData = {
-        user: loggedInUser,
-        session:"1234567"
+        user: loggedInUser
     }
 
     responseCallback({

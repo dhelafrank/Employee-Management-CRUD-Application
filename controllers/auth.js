@@ -14,7 +14,7 @@ const admin = {
     createdAt: Date.now()
 }
 
-const login = async (loginData, responseCallback) => {
+const login = async (loginData, res, responseCallback) => {
 
     const {
         email,
@@ -22,7 +22,7 @@ const login = async (loginData, responseCallback) => {
     } = loginData
 
     let user = admin
-    
+
     if ((email == user.emailAddress) == false) {
         responseCallback({
             statusCode: 403,
@@ -48,12 +48,18 @@ const login = async (loginData, responseCallback) => {
         passwordHash,
         ...loggedInUser
     } = user
+
+    const cookieData = {
+        user: loggedInUser,
+        session:"1234567"
+    }
+
     responseCallback({
         statusCode: 200,
         status: true,
         message: "Login Success",
         data: [loggedInUser]
-    })
+    }, cookieData)
 }
 
 module.exports = {

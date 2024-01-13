@@ -1,14 +1,15 @@
 document.getElementById("login-form").addEventListener("submit", (e) => {
+    const loginBtn = document.getElementById("log-in-btn")
     e.preventDefault()
-    e.innerHTML = "Logging in"
+   loginBtn.value = "Logging in..."
     let formData = {
         email: document.getElementById("email").value,
         password: document.getElementById("password").value
     }
-    userLogin(formData, e)
+    userLogin(formData, loginBtn)
 })
 
-async function userLogin(formData, e) {
+async function userLogin(formData, loginBtn) {
     try {
         const response = await fetch("/auth/login", {
             method: "POST",
@@ -19,10 +20,9 @@ async function userLogin(formData, e) {
         })
         const data = await response.json()
         authDecision(data)
-        e.innerHTML = "Log in"
     } catch (error) {
         console.error(error)
-        e.innerHTML = "Log in"
+        loginBtn.value = "Log in"
     }
 }
 
@@ -32,5 +32,5 @@ async function authDecision(data) {
         return
     }
     window.location.href = data.redirect
-    session.setItem('currentUserInfo', JSON.stringify(data.data))
+    sessionStorage.setItem('currentUserInfo', JSON.stringify(data.data))
 }

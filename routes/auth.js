@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+require('dotenv').config()
 const {
   login
 } = require('../controllers/auth')
@@ -9,9 +10,13 @@ router.post('/login', async (req, res, next) => {
   const dataRecieved = req.body
 
   try {
-    await login(dataRecieved, (responseObject) => {
+    await login(dataRecieved, res, (responseObject, cookieData) => {
       responseObject.redirect = "/dash"
-      res.status(responseObject.statusCode).json(responseObject)
+      
+      res.status(responseObject.statusCode).cookie('data', cookieData, {
+        maxAge: process.env.SESSION_TIMEOUT,
+        httpOnly: true
+      }).json(responseObject)
     })
   } catch (error) {
     res.status(500).json({

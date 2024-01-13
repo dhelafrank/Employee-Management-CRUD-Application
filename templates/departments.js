@@ -11,6 +11,15 @@ class departmentsTemplate {
         return `
         <h3>No Information Found</h3>`
     }
+
+    async individualContents() {
+        return `${await individualContentDecider()}`
+    }
+    
+}
+
+async function individualContentDecider() {
+    return `<h2>Department Does not Exist</h2>`
 }
 const departmentsTemp = new departmentsTemplate()
 

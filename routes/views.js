@@ -15,34 +15,63 @@ router.get('/', async (req, res, next) => {
   });
 });
 
-// GET home page
+// Renders Dashboard Screen
 router.get('/dash', validationMiddleware, async (req, res, next) => {
   res.render('dash', {
     organisation: process.env.ORGANISATION_NAME,
     projectName: process.env.PROJECT_NAME,
     screenTitle: "Dashboard",
     menu: dashTemp.menu(),
-    contents:dashTemp.contents()
+    contents: dashTemp.contents()
   });
 });
 
+// Renders Employees Screen
 router.get('/employees', validationMiddleware, async (req, res, next) => {
   res.render('dash', {
     organisation: process.env.ORGANISATION_NAME,
     projectName: process.env.PROJECT_NAME,
     screenTitle: "Employees",
     menu: employeesTemp.menu(),
-    contents:await employeesTemp.contents()
+    contents: await employeesTemp.contents()
   });
 });
 
+// Renders Departments Screen
 router.get('/departments', validationMiddleware, async (req, res, next) => {
   res.render('dash', {
     organisation: process.env.ORGANISATION_NAME,
     projectName: process.env.PROJECT_NAME,
     screenTitle: "Departments",
     menu: departmentsTemp.menu(),
-    contents:departmentsTemp.contents()
+    contents: departmentsTemp.contents()
+  });
+});
+
+
+
+
+
+// Renders Individaual Employee Screen by Name
+router.get('/employees/:name', validationMiddleware, async (req, res, next) => {
+  res.render('dash', {
+    organisation: process.env.ORGANISATION_NAME,
+    projectName: process.env.PROJECT_NAME,
+    screenTitle: "Employees",
+    menu: employeesTemp.menu(),
+    contents: await employeesTemp.individualContents()
+  });
+});
+
+
+// Renders Individual Department Screen by Name
+router.get('/departments/:name', validationMiddleware, async (req, res, next) => {
+  res.render('dash', {
+    organisation: process.env.ORGANISATION_NAME,
+    projectName: process.env.PROJECT_NAME,
+    screenTitle: "Departments",
+    menu: departmentsTemp.menu(),
+    contents: await departmentsTemp.individualContents()
   });
 });
 

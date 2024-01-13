@@ -1,18 +1,18 @@
 const allEmployees = [{
-    firstName: "John",
-    lastName: "Doe",
-    department: "Orthopedic"
-},
-{
-    firstName: "Mary",
-    lastName: "Jane",
-    department: "Paediatric"
-},
-{
-    firstName: "Ubongabasi",
-    lastName: "Jerome",
-    department: "Male Surgical Ward"
-}
+        firstName: "John",
+        lastName: "Doe",
+        department: "Orthopedic"
+    },
+    {
+        firstName: "Mary",
+        lastName: "Jane",
+        department: "Paediatric"
+    },
+    {
+        firstName: "Ubongabasi",
+        lastName: "Jerome",
+        department: "Male Surgical Ward"
+    }
 ]
 
 class employeesTemplate {
@@ -39,9 +39,10 @@ class employeesTemplate {
         </script>
         `
     }
+    async individualContents() {
+        return `${await individualContentDecider()}`
+    }
 }
-
-let script = ``
 
 async function employeesCardGenerator() {
     let htmlContent = ``
@@ -62,6 +63,10 @@ async function employeesCardGenerator() {
     return htmlContent
 }
 
+
+async function individualContentDecider() {
+    return `<h2>Employee Does not Exist</h2>`
+}
 
 const employeesTemp = new employeesTemplate()
 

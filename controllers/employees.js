@@ -5,7 +5,7 @@ class employeesClass{
     createNew(data){}
     delete(id){}
     update(id){}
-    view(){}
+    view(name){}
 }
 
 module.exports = employeesClass

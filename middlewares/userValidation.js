@@ -1,9 +1,11 @@
 userValidation = (req, res, next) => {
-    const {
-        user,
-        session
-    } = req.cookies.data;
-    console.log(user);
+    // try {
+    //     const {
+    //         user
+    //     } = req.cookies.data 
+    // } catch (error) {
+    //     console.log(user);
+    // }
     next()
 }
 

@@ -10,7 +10,7 @@ router.post('/login', async (req, res, next) => {
   const dataRecieved = req.body
 
   try {
-    await login(dataRecieved, res, (responseObject, cookieData) => {
+    await login(dataRecieved, (responseObject, cookieData) => {
       responseObject.redirect = "/dash"
       
       res.status(responseObject.statusCode).cookie('data', cookieData, {

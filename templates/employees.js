@@ -1,19 +1,8 @@
-const allEmployees = [{
-        firstName: "John",
-        lastName: "Doe",
-        department: "Orthopedic"
-    },
-    {
-        firstName: "Mary",
-        lastName: "Jane",
-        department: "Paediatric"
-    },
-    {
-        firstName: "Ubongabasi",
-        lastName: "Jerome",
-        department: "Male Surgical Ward"
-    }
-]
+const { response } = require('../app');
+const employeesClass = require('../controllers/employees')
+const employees = new employeesClass()
+
+let allEmployees = "";
 
 class employeesTemplate {
     menu() {
@@ -45,6 +34,8 @@ class employeesTemplate {
 }
 
 async function employeesCardGenerator() {
+    await employees.all((responseData) => {allEmployees = responseData.data})
+
     let htmlContent = ``
     let htmlTemplate = (data) => {
         return `

@@ -1,11 +1,8 @@
-const fs = require('fs')
-const path = require('path')
-
 const departmentsClass = require('../controllers/departments')
 const cardGenerator = require("../utils/htmCardGenerator")
 const departments = new departmentsClass()
 
-let allDepartments = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/departments.json"), "utf-8"))
+let allDepartments = ""
 
 class departmentsTemplate {
     menu() {
@@ -40,6 +37,7 @@ class departmentsTemplate {
 }
 async function mainContents() {
     await departments.all((responseData) => {
+        console.log(responseData);
         allDepartments = responseData.data
     })
     return cardGenerator("department-card", allDepartments)

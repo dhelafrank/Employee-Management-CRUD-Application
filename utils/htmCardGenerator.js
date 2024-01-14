@@ -1,6 +1,7 @@
 function cardGenerator(cardClassName, inputObject) {
     let htmlContent = ``
     let htmlTemplate = (data) => {
+        console.log(data.department);
         return `
                  <li class="${cardClassName}">
                      <div>

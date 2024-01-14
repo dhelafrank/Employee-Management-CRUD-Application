@@ -1,11 +1,6 @@
-const fs = require('fs')
-const path = require('path')
-
 const employeesClass = require('../controllers/employees')
 const cardGenerator = require("../utils/htmCardGenerator")
 const employees = new employeesClass()
-
-let allEmployees = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/employees.json"), "utf-8"));
 
 class employeesTemplate {
     menu() {

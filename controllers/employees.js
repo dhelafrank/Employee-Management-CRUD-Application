@@ -1,6 +1,10 @@
+const fs = require('fs')
+const path = require('path')
 const {
     employees
 } = require("../models/employee")
+const localEmployees = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/employees.json"), "utf-8"));
+
 
 class employeesClass {
     async all(callback) {
@@ -15,8 +19,8 @@ class employeesClass {
         } catch (error) {
             callback({
                 status: false,
-                message: "Internal Server Error",
-                data: []
+                message: "Employees from database could not be fetched",
+                data: localEmployees
             })
             console.log(error);
         }

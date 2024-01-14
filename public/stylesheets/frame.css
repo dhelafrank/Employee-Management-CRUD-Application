@@ -3,9 +3,7 @@
     height: 100vh;
     width: 100vw;
 }
-.contents{
-    padding: 1.5rem 0 0 2rem;
-}
+
 nav {
     display: flex;
     align-items: center;
@@ -91,8 +89,24 @@ section {
 
 .contents {
     color: var(--light-color);
+    padding: 1.5rem 0 0 2rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 85vh;
 }
 
-* {
-    /* outline: .5px dashed red; */
+.contents::-webkit-scrollbar,
+.contents::-webkit-scrollbar-thumb,
+.contents::-webkit-scrollbar-track {
+    display: none;
+}
+@media(max-width:1000px) {
+    .contents {
+        /* height: 85vh; */
+    }
+}
+@media(max-width:800px) {
+    .contents {
+        height: 90vh;
+    }
 }

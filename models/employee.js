@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const departments = require('./department')
 
 const employeesSchema = new mongoose.Schema({
     _id: {
@@ -10,8 +9,7 @@ const employeesSchema = new mongoose.Schema({
         required: true
     },
     otherNames: {
-        type: String,
-        required: true
+        type: String
     },
     lastName: {
         type: String,
@@ -21,12 +19,12 @@ const employeesSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    dateOfEmployement: {
+    dateOfEmployment: {
         type: Number,
         required: true
     },
     departments: {
-        type: [departments._id],
+        type: [Number],
         default: []
     },
     createdAt: {

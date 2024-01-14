@@ -1,0 +1,93 @@
+[
+    {
+      "_id": 1,
+      "firstName": "Lisa",
+      "otherNames": "",
+      "lastName": "Harris",
+      "dateOfBirth": 19900101,
+      "dateOfEmployment": 20210101,
+      "departments": [1]
+    },
+    {
+      "_id": 2,
+      "firstName": "Alfred",
+      "otherNames": "",
+      "lastName": "Christensen",
+      "dateOfBirth": 19851215,
+      "dateOfEmployment": 20200215,
+      "departments": [2]
+    },
+    {
+      "_id": 3,
+      "firstName": "John",
+      "otherNames": "",
+      "lastName": "Dudley",
+      "dateOfBirth": 19871025,
+      "dateOfEmployment": 20190310,
+      "departments": [3]
+    },
+    {
+      "_id": 4,
+      "firstName": "Danny",
+      "otherNames": "",
+      "lastName": "Perez",
+      "dateOfBirth": 19950218,
+      "dateOfEmployment": 20201120,
+      "departments": [4]
+    },
+    {
+      "_id": 5,
+      "firstName": "Sarah",
+      "otherNames": "",
+      "lastName": "Alvarez",
+      "dateOfBirth": 19910830,
+      "dateOfEmployment": 20220105,
+      "departments": [5]
+    },
+    {
+      "_id": 6,
+      "firstName": "Constance",
+      "otherNames": "",
+      "lastName": "Smith",
+      "dateOfBirth": 19821205,
+      "dateOfEmployment": 20171015,
+      "departments": [1, 2]
+    },
+    {
+      "_id": 7,
+      "firstName": "Travis",
+      "otherNames": "",
+      "lastName": "Combs",
+      "dateOfBirth": 19890812,
+      "dateOfEmployment": 20180228,
+      "departments": [3, 4]
+    },
+    {
+      "_id": 8,
+      "firstName": "Francisco",
+      "otherNames": "",
+      "lastName": "Willard",
+      "dateOfBirth": 19931203,
+      "dateOfEmployment": 20200320,
+      "departments": [5]
+    },
+    {
+      "_id": 9,
+      "firstName": "Janet",
+      "otherNames": "",
+      "lastName": "Doe",
+      "dateOfBirth": 19970710,
+      "dateOfEmployment": 20210815,
+      "departments": [1, 2, 3]
+    },
+    {
+      "_id": 10,
+      "firstName": "Leslie",
+      "otherNames": "",
+      "lastName": "Roche",
+      "dateOfBirth": 19900918,
+      "dateOfEmployment": 20220110,
+      "departments": [4, 5]
+    }
+  ]
+  

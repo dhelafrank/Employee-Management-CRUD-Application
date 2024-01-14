@@ -14,7 +14,7 @@ const admin = {
     createdAt: Date.now()
 }
 
-const login = async (loginData, res, responseCallback) => {
+const login = async (loginData, responseCallback) => {
 
     const {
         email,

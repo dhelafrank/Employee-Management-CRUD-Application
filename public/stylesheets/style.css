@@ -1,9 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Raleway&family=Roboto+Condensed:wght@700&family=Roboto:wght@500&display=swap');
 :root {
   --primary-color: #00B7FF;
   --dark-color:#000;
   --light-color:#fff;
 
-  --default-font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  --default-font-family: "Poppins", "Lucida Grande", Helvetica, Arial, sans-serif, system-ui;
 }
 
 ul{

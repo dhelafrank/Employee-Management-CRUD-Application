@@ -1,3 +1,12 @@
+const fs = require('fs')
+const path = require('path')
+
+const departmentsClass = require('../controllers/departments')
+const cardGenerator = require("../utils/htmCardGenerator")
+const departments = new departmentsClass()
+
+let allDepartments = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/departments.json"), "utf-8"))
+
 class departmentsTemplate {
     menu() {
         return ` <ul>
@@ -7,15 +16,34 @@ class departmentsTemplate {
                 </ul>`
     }
 
-    contents() {
+    async contents() {
         return `
-        <h3>No Information Found</h3>`
+        <ul>
+            ${await mainContents()}
+        <ul>
+        
+        <script>
+        document.querySelectorAll(".department-card").forEach(card => {
+                 card.addEventListener("click", (e) => {
+                     let departmentName = card.querySelector(".name").innerHTML
+                     window.location.href = \`/departments/\${departmentName}\`
+                 })
+             })
+        </script>
+        `
     }
 
     async individualContents() {
         return `${await individualContentDecider()}`
     }
-    
+
+}
+async function mainContents() {
+    await departments.all((responseData) => {
+        allDepartments = responseData.data
+    })
+    return cardGenerator("department-card", allDepartments)
+
 }
 
 async function individualContentDecider() {

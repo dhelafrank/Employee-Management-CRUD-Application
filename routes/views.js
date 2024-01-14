@@ -44,7 +44,7 @@ router.get('/departments', validationMiddleware, async (req, res, next) => {
     projectName: process.env.PROJECT_NAME,
     screenTitle: "Departments",
     menu: departmentsTemp.menu(),
-    contents: departmentsTemp.contents()
+    contents: await departmentsTemp.contents()
   });
 });
 

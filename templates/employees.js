@@ -1,8 +1,11 @@
-const { response } = require('../app');
+const fs = require('fs')
+const path = require('path')
+
 const employeesClass = require('../controllers/employees')
+const cardGenerator = require("../utils/htmCardGenerator")
 const employees = new employeesClass()
 
-let allEmployees = "";
+let allEmployees = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/employees.json"), "utf-8"));
 
 class employeesTemplate {
     menu() {
@@ -15,7 +18,7 @@ class employeesTemplate {
     async contents() {
         return `
         <ul>
-            ${await employeesCardGenerator()}
+            ${await mainContents()}
         <ul>
         
         <script>
@@ -33,26 +36,31 @@ class employeesTemplate {
     }
 }
 
-async function employeesCardGenerator() {
+async function mainContents(){
     await employees.all((responseData) => {allEmployees = responseData.data})
+    return cardGenerator("employee-card", allEmployees)
 
-    let htmlContent = ``
-    let htmlTemplate = (data) => {
-        return `
-                 <li class="employee-card">
-                     <div>
-                         <p class="name">${data.firstName} ${data.lastName}</p>
-                         <p class="department">${data.department}</p>
-                     </div>
-                 </li>
-                `
-    }
-
-    allEmployees.forEach(employee => {
-        htmlContent += htmlTemplate(employee)
-    })
-    return htmlContent
 }
+
+
+// async function employeesCardGenerator() {
+//     let htmlContent = ``
+//     let htmlTemplate = (data) => {
+//         return `
+//                  <li class="employee-card">
+//                      <div>
+//                          <p class="name">${data.firstName} ${data.lastName}</p>
+//                          <p class="department">${data.department}</p>
+//                      </div>
+//                  </li>
+//                 `
+//     }
+
+//     allEmployees.forEach(employee => {
+//         htmlContent += htmlTemplate(employee)
+//     })
+//     return htmlContent
+// }
 
 
 async function individualContentDecider() {

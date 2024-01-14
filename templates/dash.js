@@ -9,7 +9,9 @@ class dashTemplate {
 
     contents() {
         return `
-        <h3>No Information Found</h3>`
+        <h3>No Information Found</h3>
+       
+        `
     }
 }
 

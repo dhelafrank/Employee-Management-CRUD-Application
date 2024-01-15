@@ -105,9 +105,13 @@ class employeesClass {
     async perDepartment(departmentId) {
         // console.log(`\n\n\nTotal PerDepartment Requested \n\n\n`);
         try {
-            const employeesArray = await employees.find({departments:[departmentId]})
+            const employeesArray = await employees.find({
+                departments: {
+                    $in: [departmentId]
+                }
+            })
 
-        // console.log(`\n\n\nEmployee for each department found ${employeesArray} \n\n\n`);
+            console.log(`\n\n\nEmployee for each department found ${employeesArray} \n\n\n`);
             return employeesArray
         } catch (error) {
             console.log(error);

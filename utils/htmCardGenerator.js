@@ -1,3 +1,6 @@
+const employeesController = require('../controllers/employees')
+const employeesClass = new employeesController()
+
 const departmentsController = require('../controllers/departments')
 const departmentsClass = new departmentsController()
 
@@ -46,17 +49,17 @@ async function cardGenerator(cardClassName, inputObject) {
                 return department.name
             })
             const departmentNames = await Promise.all(departmentPromises);
-            return departmentNames.join(" ")
+            return departmentNames.join(", ")
         }
-        return `No. of Employees: ${data.noOfEmployees}`
+
+        const totalEmployeesPerDepartment = await employeesClass.perDepartment(data._id)
+        return `No. of Employees: ${totalEmployeesPerDepartment.length}`
 
     }
 
     for (const object of inputObject) {
         htmlContent += await htmlTemplate(object)
     }
-
-    console.log(`\n\nHTML Content Returned is: ${htmlContent}\n\n`);
     return htmlContent;
 }
 

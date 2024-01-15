@@ -3,6 +3,9 @@ const path = require('path')
 const {
     employees
 } = require("../models/employee")
+const {
+    departments
+} = require("../models/department")
 const localEmployees = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/employees.json"), "utf-8"));
 
 
@@ -97,6 +100,17 @@ class employeesClass {
                 message: "Internal Server Error",
                 data: []
             })
+        }
+    }
+    async perDepartment(departmentId) {
+        // console.log(`\n\n\nTotal PerDepartment Requested \n\n\n`);
+        try {
+            const employeesArray = await employees.find({departments:[departmentId]})
+
+        // console.log(`\n\n\nEmployee for each department found ${employeesArray} \n\n\n`);
+            return employeesArray
+        } catch (error) {
+            console.log(error);
         }
     }
 }

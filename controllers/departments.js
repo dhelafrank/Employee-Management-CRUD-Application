@@ -52,12 +52,10 @@ class departmentsClass {
     async departmentByIndex(index) {
         try {
             let responseData = await this.all((data)=>{})
-            // console.log(responseData);
                 let sortedDepartments = responseData.sort((a, b) => {
                     return a._id - b._id
                 })
                 const departmentGotten = sortedDepartments[index]
-                // console.log(`\n\nRaw Department gotten from sorting function ${JSON.stringify(sortedDepartments)}\n\n`);
                 return departmentGotten
         } catch (error) {
             console.log(error);

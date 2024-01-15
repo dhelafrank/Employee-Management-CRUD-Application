@@ -15,10 +15,6 @@ const departmentsSchema = new mongoose.Schema({
     maxEmployees:{
         type:Number,
         required:true
-    },
-    noOfEmployees:{
-        type:Number,
-        required:true
     }
 })
 

@@ -3,6 +3,7 @@ const path = require('path')
 const {
     departments
 } = require("../models/department")
+const { response } = require('../app')
 const localDepartments = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/departments.json"), "utf-8"))
 
 
@@ -48,16 +49,16 @@ class departmentsClass {
 
         }
     }
-    async departmentByIndex(index, callback) {
+    async departmentByIndex(index) {
         try {
-            await this.all((responseData) => {
-                let sortedDepartments = responseData.data.sort((a, b) => {
+            let responseData = await this.all((data)=>{})
+            // console.log(responseData);
+                let sortedDepartments = responseData.sort((a, b) => {
                     return a._id - b._id
                 })
                 const departmentGotten = sortedDepartments[index]
                 // console.log(`\n\nRaw Department gotten from sorting function ${JSON.stringify(sortedDepartments)}\n\n`);
-                callback(departmentGotten)
-            })
+                return departmentGotten
         } catch (error) {
             console.log(error);
         }

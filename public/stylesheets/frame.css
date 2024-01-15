@@ -94,7 +94,14 @@ section {
     overflow-x: hidden;
     height: 85vh;
 }
-
+.contents .heading{
+    color: var(--light-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80vw;
+    min-width:15rem;
+}
 .contents::-webkit-scrollbar,
 .contents::-webkit-scrollbar-thumb,
 .contents::-webkit-scrollbar-track {

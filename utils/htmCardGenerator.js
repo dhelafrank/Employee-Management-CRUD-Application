@@ -1,19 +1,44 @@
-function cardGenerator(cardClassName, inputObject) {
+const departmentsController = require('../controllers/departments')
+const departmentsClass = new departmentsController()
+
+
+async function cardGenerator(cardClassName, inputObject) {
     let htmlContent = ``
-    let htmlTemplate = (data) => {
+    let htmlTemplate = async (data) => {
         return `
                  <li class="${cardClassName}">
                      <div>
                          <p class="name">${data.firstName || data.name} ${data.lastName || ""}</p>
-                         <p>${data.departments ||`No. of Employees: ${data.noOfEmployees}`}</p>
+                         <p>${await departmentsCheck(data)}</p>
                      </div>
                  </li>
                 `
     }
 
-    inputObject.forEach(object => {
-        htmlContent += htmlTemplate(object)
+    async function departmentsCheck(data) {
+        
+        if (data.departments) {
+            let departmentsText = ""
+            data.departments.forEach(async departmentIndex => {
+                await departmentsClass.departmentByIndex(departmentIndex - 1, (department) => {
+                    departmentsText += `${department.name} `
+                    console.log(`\n\nDepartment Texts are: ${departmentsText}\n\n`);
+                })
+            })
+            console.log(`\n\n\nDepartment texts to return is ${departmentsText} \n\n\n`);
+            return departmentsText
+        }
+
+        return `No. of Employees: ${data.noOfEmployees}`
+    }
+
+    inputObject.forEach(async object => {
+        htmlContent += await htmlTemplate(object)
+        console.log(`\n\nHTML Content Compiled is: ${htmlContent}\n\n`);
+
     })
+
+    console.log(`\n\nHTML Content Returned is: ${htmlContent}\n\n`);
     return htmlContent
 }
 

@@ -19,10 +19,11 @@ class departmentsClass {
         } catch (error) {
             callback({
                 status: false,
-                message: "Departments from database  could not be fetched",
+                message: "Departments from database could not be fetched",
                 data: localDepartments
             })
             console.log(error);
+            return localDepartments
         }
     }
 
@@ -45,6 +46,20 @@ class departmentsClass {
 
         } catch (error) {
 
+        }
+    }
+    async departmentByIndex(index, callback) {
+        try {
+            await this.all((responseData) => {
+                let sortedDepartments = responseData.data.sort((a, b) => {
+                    return a._id - b._id
+                })
+                const departmentGotten = sortedDepartments[index]
+                // console.log(`\n\nRaw Department gotten from sorting function ${JSON.stringify(sortedDepartments)}\n\n`);
+                callback(departmentGotten)
+            })
+        } catch (error) {
+            console.log(error);
         }
     }
 }

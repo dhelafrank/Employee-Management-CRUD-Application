@@ -22,6 +22,7 @@ router.get('/dash', validationMiddleware, async (req, res, next) => {
     projectName: process.env.PROJECT_NAME,
     screenTitle: "Dashboard",
     menu: dashTemp.menu(),
+    quickActionBtn:``,
     contents: dashTemp.contents()
   });
 });
@@ -33,6 +34,7 @@ router.get('/employees', validationMiddleware, async (req, res, next) => {
     projectName: process.env.PROJECT_NAME,
     screenTitle: "Employees",
     menu: employeesTemp.menu(),
+    quickActionBtn:employeesTemp.quickActionBtn(),
     contents: await employeesTemp.contents()
   });
 });
@@ -44,6 +46,7 @@ router.get('/departments', validationMiddleware, async (req, res, next) => {
     projectName: process.env.PROJECT_NAME,
     screenTitle: "Departments",
     menu: departmentsTemp.menu(),
+    quickActionBtn:departmentsTemp.quickActionBtn(),
     contents: await departmentsTemp.contents()
   });
 });
@@ -59,6 +62,7 @@ router.get('/employees/:name', validationMiddleware, async (req, res, next) => {
     projectName: process.env.PROJECT_NAME,
     screenTitle: "Employees",
     menu: employeesTemp.menu(),
+    quickActionBtn:employeesTemp.quickActionBtn(),
     contents: await employeesTemp.individualContents()
   });
 });
@@ -71,6 +75,7 @@ router.get('/departments/:name', validationMiddleware, async (req, res, next) =>
     projectName: process.env.PROJECT_NAME,
     screenTitle: "Departments",
     menu: departmentsTemp.menu(),
+    quickActionBtn:departmentsTemp.quickActionBtn(),
     contents: await departmentsTemp.individualContents()
   });
 });

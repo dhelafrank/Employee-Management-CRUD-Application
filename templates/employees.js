@@ -26,6 +26,9 @@ class employeesTemplate {
         </script>
         `
     }
+    quickActionBtn(){
+        return `<a href="/employees/new" class="btn primary-btn">New Employee</a>`
+    }
     async individualContents() {
         return `${await individualContentDecider()}`
     }
@@ -33,7 +36,7 @@ class employeesTemplate {
 
 async function mainContents(){
     await employees.all((responseData) => {allEmployees = responseData.data})
-    return cardGenerator("employee-card", allEmployees)
+    return await cardGenerator("employee-card", allEmployees)
 
 }
 

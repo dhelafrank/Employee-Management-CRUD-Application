@@ -1,3 +1,2 @@
-- Remove User Authentication accomodation for more users
 - Create UI Button for new employee and mew department
 - Create UI Content for new employee and new department

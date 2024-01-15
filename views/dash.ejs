@@ -16,7 +16,7 @@
             <h1 class="identityHeading"><%=organisation%></h1>
             <div class="searchBox">
                 <input type="text" placeholder="Employees, Departments...">
-                <i class="fa-solid fa-magnifying-glass">O</i>
+                <i class="fa-solid fa-magnifying-glass"></i>
             </div>
             <div class="userIcon"></div>
         </nav>
@@ -33,7 +33,10 @@
             </div>
 
             <div class="contents">
-                <h1 class="screenTitle"><%=screenTitle%></h1>
+                <div class="heading">
+                    <h1 class="screenTitle"><%=screenTitle%></h1>
+                    <%-quickActionBtn%>
+                </div>
                 <%-contents%>
             </div>
         </section>

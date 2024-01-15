@@ -33,14 +33,16 @@ class departmentsTemplate {
     async individualContents() {
         return `${await individualContentDecider()}`
     }
+    quickActionBtn(){
+        return `<a href="/departments/new" class="btn primary-btn">New Department</a>`
+    }
 
 }
 async function mainContents() {
     await departments.all((responseData) => {
-        console.log(responseData);
         allDepartments = responseData.data
     })
-    return cardGenerator("department-card", allDepartments)
+    return await cardGenerator("department-card", allDepartments)
 
 }
 

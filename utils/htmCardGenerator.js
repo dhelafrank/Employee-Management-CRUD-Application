@@ -51,7 +51,6 @@ async function cardGenerator(cardClassName, inputObject) {
             const departmentNames = await Promise.all(departmentPromises);
             return departmentNames.join(", ")
         }
-        console.log(data._id);
         const totalEmployeesPerDepartment = await employeesClass.perDepartment(data._id)
         return `No. of Employees: ${totalEmployeesPerDepartment.length}`
 

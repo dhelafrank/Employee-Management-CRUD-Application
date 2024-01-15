@@ -84,9 +84,10 @@ class employeesClass {
         }
 
     }
-    async view(name, callback) {
+    async view(nameObject, callback) {
+        const {firstName, lastName} = nameObject
         try {
-            const employee = await employees.findOne(name)
+            const employee = await employees.find({firstName, lastName})
             callback({
                 status: true,
                 message: "Employee Found",
@@ -111,7 +112,7 @@ class employeesClass {
                 }
             })
 
-            console.log(`\n\n\nEmployee for each department found ${employeesArray} \n\n\n`);
+            // console.log(`\n\n\nEmployee for each department found ${employeesArray} \n\n\n`);
             return employeesArray
         } catch (error) {
             console.log(error);

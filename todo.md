@@ -1,2 +1,4 @@
-- Create UI Button for new employee and mew department
-- Create UI Content for new employee and new department
+- Create screen for new Employee
+- Create Screen for individual employee
+- Create screen for new department
+- create screen for individual department

@@ -1,6 +1,7 @@
 const employeesClass = require('../controllers/employees')
 const cardGenerator = require("../utils/htmCardGenerator")
 const employees = new employeesClass()
+const nameSplitter = require("../utils/nameSplitter")
 
 class employeesTemplate {
     menu() {
@@ -29,8 +30,10 @@ class employeesTemplate {
     quickActionBtn(){
         return `<a href="/employees/new" class="btn primary-btn">New Employee</a>`
     }
-    async individualContents() {
-        return `${await individualContentDecider()}`
+    async individualContents(name) {
+        console.log(name);
+        const nameObject = nameSplitter(name)
+        return `${await individualContentDecider(nameObject)}`
     }
 }
 
@@ -39,29 +42,11 @@ async function mainContents(){
     return await cardGenerator("employee-card", allEmployees)
 
 }
-
-
-// async function employeesCardGenerator() {
-//     let htmlContent = ``
-//     let htmlTemplate = (data) => {
-//         return `
-//                  <li class="employee-card">
-//                      <div>
-//                          <p class="name">${data.firstName} ${data.lastName}</p>
-//                          <p class="department">${data.department}</p>
-//                      </div>
-//                  </li>
-//                 `
-//     }
-
-//     allEmployees.forEach(employee => {
-//         htmlContent += htmlTemplate(employee)
-//     })
-//     return htmlContent
-// }
-
-
-async function individualContentDecider() {
+async function individualContentDecider(nameObject) {
+    const employeeFetched = await employees.view(nameObject, ()=>{})
+    if (employeeFetched && employeeFetched.length > 0) {
+        return `${JSON.stringify(employeeFetched)}`
+    }
     return `<h2>Employee Does not Exist</h2>`
 }
 

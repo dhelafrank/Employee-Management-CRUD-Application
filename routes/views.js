@@ -63,7 +63,7 @@ router.get('/employees/:name', validationMiddleware, async (req, res, next) => {
     screenTitle: "Employees",
     menu: employeesTemp.menu(),
     quickActionBtn:employeesTemp.quickActionBtn(),
-    contents: await employeesTemp.individualContents()
+    contents: await employeesTemp.individualContents(req.params.name)
   });
 });
 

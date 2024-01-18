@@ -1,5 +1,6 @@
 @import url("./style.css") all;
 @import url("./frame.css") all;
+@import url("./component/employee.css") all;
 
 body {
     background: color-mix(in srgb, var(--dark-color) 60%, var(--light-color));
@@ -16,7 +17,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 70svw;
+    width: 100%;
+    max-width: 77vw;
     border-radius: 3px;
     padding: 0 1rem;
     box-shadow: 0 2px 7px color-mix(in srgb, var(--dark-color) 60%, var(--light-color));

@@ -5,7 +5,7 @@ const employees = new employeesClass()
 const departments = new departmentsClass()
 
 
-const cardGenerator = require("../utils/htmCardGenerator")
+const cardGenerator = require("./components/htmlCardGenerator")
 const nameSplitter = require("../utils/nameSplitter")
 const {timeFormmater} = require("../utils/timestampConverter")
 
@@ -88,28 +88,33 @@ async function employeeHTMLGenerator(employee) {
         }
     
         return `
-        <ul>
+        <ul class="info-content">
             ${listElement}
         </ul>
         `
     }
     return `<div class="employee-information-container">
                 <div class="section-one">
-                    <p>Departments</p>
+                    <p class="info-heading">Departments</p>
                         ${await departmentComponent(employeeDepartments)}
                 </div>
                 <div class="section-two">
                     <div>
                         <p class="info-heading">Date of Birth</p>
-                        <span>${timeFormmater(employee.dateOfBirth)}</span>
+                        <span class="info-content">${timeFormmater(employee.dateOfBirth)}</span>
                     </div>
 
                     <div>
                         <p class="info-heading">Date of Employment</p>
-                        <span>${timeFormmater(employee.dateOfEmployment)}</span>
+                        <span class="info-content">${timeFormmater(employee.dateOfEmployment)}</span>
                     </div>
+                </div>
             </div>
-            </div>`
+            <div class="action-btn-container">
+                <button class="btn primary-btn">Edit Employee  <i class="fa-solid fa-pencil"></i></button>
+                <button class="btn negative-btn">Delete Employee  <i class="fa-solid fa-trash-can"></i></button>
+            </div>
+            `
     // return JSON.stringify(employee)
 }
 const employeesTemp = new employeesTemplate()

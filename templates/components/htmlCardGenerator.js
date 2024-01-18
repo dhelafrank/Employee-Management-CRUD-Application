@@ -1,7 +1,7 @@
-const employeesController = require('../controllers/employees')
+const employeesController = require('../../controllers/employees')
 const employeesClass = new employeesController()
 
-const departmentsController = require('../controllers/departments')
+const departmentsController = require('../../controllers/departments')
 const departmentsClass = new departmentsController()
 
 

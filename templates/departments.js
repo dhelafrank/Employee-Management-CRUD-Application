@@ -1,5 +1,5 @@
 const departmentsClass = require('../controllers/departments')
-const cardGenerator = require("../utils/htmCardGenerator")
+const cardGenerator = require("./components/htmlCardGenerator")
 const departments = new departmentsClass()
 
 let allDepartments = ""

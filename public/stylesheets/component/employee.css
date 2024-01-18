@@ -1,0 +1,26 @@
+.employee-information-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 55dvh;
+}
+.section-one .departments-list{
+    padding: 0;
+    cursor: default;
+}
+ul {
+    padding: 0;
+}
+
+.info-heading {
+    font-size: 15px;
+    font-weight: 600;
+}
+.section-two div:last-child{
+    margin-top: 2rem;
+}
+@media (max-width:600px) {
+    .employee-information-container {
+        flex-direction: column;
+    }
+}

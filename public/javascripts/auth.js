@@ -19,15 +19,16 @@ async function userLogin(formData, loginBtn) {
             body: JSON.stringify(formData)
         })
         const data = await response.json()
-        authDecision(data)
+        authDecision(data, loginBtn)
     } catch (error) {
         console.error(error)
         loginBtn.value = "Log in"
     }
 }
 
-async function authDecision(data) {
+async function authDecision(data, loginBtn) {
     if (data.status == false) {
+        loginBtn.value = "Log in"
         alert(data.message)
         return
     }

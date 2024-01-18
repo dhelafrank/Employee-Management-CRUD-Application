@@ -1,19 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&family=Raleway&family=Roboto+Condensed:wght@700&family=Roboto:wght@500&display=swap');
+
 :root {
   --primary-color: #00B7FF;
-  --dark-color:#000;
-  --light-color:#fff;
+  --dark-color: #000;
+  --light-color: #fff;
 
   --default-font-family: "Poppins", "Lucida Grande", Helvetica, Arial, sans-serif, system-ui;
 }
 
-ul{
+ul {
   list-style: none;
 }
 
-a{
+a {
   text-decoration: none;
 }
+
 body {
   padding: 0;
   margin: 0;
@@ -35,6 +37,8 @@ body {
 }
 
 .btn {
+  border-radius: 5px;
+  padding: .5rem 3rem;
   border: none;
   font-family: var(--default-font-family);
   cursor: pointer;
@@ -42,31 +46,51 @@ body {
 }
 
 .primary-btn {
-  border-radius: 5px;
-  padding: .5rem 3rem;
   background: var(--primary-color);
   color: var(--light-color);
 }
 
 .primary-btn:hover {
-  background: #014661;
+  background: color-mix(in srgb, var(--primary-color), var(--dark-color) 20%)
 }
 
-.ghost-btn{
+.ghost-btn {
   border-radius: 5px;
-  border:.5px solid var(--light-color);;
-  color:var(--light-color);;
+  border: .5px solid var(--light-color);
+  color: var(--light-color);
   background: #0000006e;
   padding: .5rem 3rem;
 }
-.ghost-btn:hover{
+
+.ghost-btn:hover {
   background: transparent;
 }
-.mobile-nav{
+
+.negative-btn {
+  background: #d9534f;
+  color: #fff;
+}
+
+.negative-btn:hover {
+  background: color-mix(in srgb, #d9534f, var(--dark-color) 20%)
+}
+
+.mobile-nav {
   display: none;
 }
+
+.action-btn-container{
+  margin-right: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+.action-btn-container button:first-child {margin-right: 3rem;}
+.action-btn-container>button {
+  margin-top: 2rem;
+}
+
 @media (max-width:700px) {
-  .desktop-nav{
+  .desktop-nav {
     display: none;
   }
 }

@@ -57,13 +57,17 @@ router.get('/departments', validationMiddleware, async (req, res, next) => {
 
 // Renders Individaual Employee Screen by Name
 router.get('/employees/:name', validationMiddleware, async (req, res, next) => {
+  const employeeObject = await employeesTemp.individualContents(req.params.name)
+  const {screenTitle, contents} = employeeObject
+
+  // console.log(`EJS Object from route ${JSON.stringify(await employeeObject)}`);
   res.render('dash', {
     organisation: process.env.ORGANISATION_NAME,
     projectName: process.env.PROJECT_NAME,
-    screenTitle: "Employees",
+    screenTitle,
     menu: employeesTemp.menu(),
-    quickActionBtn:employeesTemp.quickActionBtn(),
-    contents: await employeesTemp.individualContents(req.params.name)
+    quickActionBtn:``,
+    contents,
   });
 });
 

@@ -51,12 +51,13 @@ class departmentsClass {
     }
     async departmentByIndex(index) {
         try {
-            let responseData = await this.all((data)=>{})
-                let sortedDepartments = responseData.sort((a, b) => {
-                    return a._id - b._id
-                })
-                const departmentGotten = sortedDepartments[index]
-                return departmentGotten
+            // let responseData = await this.all((data)=>{})
+                // let sortedDepartments = responseData.sort((a, b) => {
+                    // return a._id - b._id
+                // })
+
+                const departmentGotten = await departments.find({_id:index})
+                return departmentGotten[0]
         } catch (error) {
             console.log(error);
         }

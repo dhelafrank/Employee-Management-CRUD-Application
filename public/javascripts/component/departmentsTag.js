@@ -1,4 +1,4 @@
-const employeeDepartments = []
+export const employeeDepartments = []
 var departmentLists
 export function init(departmentstFetched) {
     departmentLists = departmentstFetched
@@ -79,7 +79,7 @@ function addDepartment(e) {
             tag.remove()
         }
     })
-    console.log(employeeDepartments)
+    // console.log(employeeDepartments)
     createDepartmentElement(department)
     processTagEvent()
 }

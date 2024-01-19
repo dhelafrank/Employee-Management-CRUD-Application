@@ -26,11 +26,16 @@ function processTagEvent() {
 
 function createTagOptions(tagArray, optionsContainer) {
     for (const tag of tagArray) {
-        let tagOption = `<option class="department-options" value=${tag._id}>${tag.name}</option>`
-        optionsContainer.insertAdjacentHTML("beforeend", tagOption)
+        // Check if a tag with the same ID already exists
+        const existingOption = optionsContainer.querySelector(`.department-options[value="${tag._id}"]`);
+
+        if (!existingOption) {
+            let tagOption = `<option class="department-options" value=${tag._id}>${tag.name}</option>`;
+            optionsContainer.insertAdjacentHTML("beforeend", tagOption);
+        }
     }
-    console.log(employeeDepartments);
 }
+
 
 function createDepartmentElement(department) {
     let tagContainer = document.getElementById("employee-departments-container")
@@ -39,9 +44,19 @@ function createDepartmentElement(department) {
 }
 
 function removeDepartment(value, name) {
-    let index = employeeDepartments.indexOf(value)
-    employeeDepartments.splice(index, 1)
-    console.log(employeeDepartments);
+
+
+
+    // console.log("Before removal:", employeeDepartments);
+    let index = employeeDepartments.indexOf(value);
+    if (index !== -1) {
+        employeeDepartments.splice(index, 1);
+    }
+    // console.log("After removal:", employeeDepartments);
+    // } else {
+    // console.log("Element not found in the array.");
+    // }
+
     createTagOptions([{
         _id: value,
         name

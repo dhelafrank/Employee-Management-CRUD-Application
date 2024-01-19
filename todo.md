@@ -1,5 +1,5 @@
-- Create screen for new Employee
-- Create Screen for individual employee
+- Link Tag.js file to the main new employee screen
+- Check tag.js algorithm
 - Create screen for new department
 - create screen for individual department
 

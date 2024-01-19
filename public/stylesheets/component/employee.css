@@ -90,9 +90,16 @@ ul {
 }
 
 .new-employee-container #employee-departments-container .departments-tag {
-    background: color-mix(in srgb, var(--light-color), var(--dark-color) 20%);
+    background: color-mix(in srgb, var(--light-color), var(--dark-color) 40%);
     padding: 3px 5px;
     border-radius: 3px;
+    white-space: nowrap;
+}
+
+.new-employee-container #employee-departments-container .departments-tag .fa-xmark {
+    cursor: pointer;
+    display: inline;
+    color: color-mix(in srgb, var(--dark-color) 30%, #d9534f);
 }
 
 .new-employee-container #employee-departments-container select {
@@ -103,10 +110,12 @@ ul {
     cursor: pointer;
     padding: 5px;
 }
-.new-employee-container #employee-departments-container select option{
+
+.new-employee-container #employee-departments-container select option {
     background: color-mix(in srgb, var(--dark-color), #0000006e 70%);
     cursor: pointer;
 }
+
 .new-employee-container #employee-departments-container::-webkit-scrollbar {
     display: none;
 }

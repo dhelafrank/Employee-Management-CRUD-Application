@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const {connectToDatabase} = require("./database")
+// const {connectToDatabase} = require("./database")
 
 var viewRouter = require('./routes/views');
 var authRouter = require('./routes/auth');
@@ -12,7 +12,7 @@ var departmentsRouter = require('./routes/departments')
 
 var app = express();
 const PORT = process.env.PORT || 3000
-connectToDatabase("Up and Running")
+// connectToDatabase("You are good to go")
 
 
 // view engine setup

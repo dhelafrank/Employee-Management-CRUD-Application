@@ -125,7 +125,7 @@ async function employeeHTMLGenerator(employee) {
 
 
 async function newEmployeeGenerator() {
-    return `<form class="new-employee-container" id="new-employee-form" action="/dash" method="GET">
+    return `<form class="new-employee-container" id="new-employee-form">
                 <div class="section">
                     <p class="info-heading">Personal Information</p>
                     <label>New Employee Name</label>
@@ -145,17 +145,17 @@ async function newEmployeeGenerator() {
                     </div>
                     <label>Departments</label>
                     <div id="employee-departments-container">
-                        <span class="departments-tag" id="1">Paediatric</span>
-                        <span class="departments-tag" id="2">Accident and Emergency</span>
-                        <select>
-                            <option>Add Department</option>
-                            <option>ENT</option>
-                            <option>Orthopedic</option>
+                        <!-- <span class="departments-tag" department-id="1">Paediatric <i class="fa-solid fa-xmark remove-tag"></i></span>
+                        <span class="departments-tag" department-id="2">Accident and Emergency <i class="fa-solid fa-xmark remove-tag"></i></span> -->
+                        <select id="tag-options">
+                            <option value="0">Add Department</option>
                         </select>
                     </div>
                     <button class="btn primary-btn">Create Employee</button> 
                 </div>
-            </form>`
+            </form>
+            <script src="/javascripts/newEmployee.js" type="module"></script>
+            `
 }
 
 const employeesTemp = new employeesTemplate()

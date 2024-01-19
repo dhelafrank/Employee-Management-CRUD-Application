@@ -151,7 +151,7 @@ async function newEmployeeGenerator() {
                             <option value="0">Add Department</option>
                         </select>
                     </div>
-                    <button class="btn primary-btn">Create Employee</button> 
+                    <button class="btn primary-btn new-employee-btn">Create Employee</button> 
                 </div>
             </form>
             <script src="/javascripts/newEmployee.js" type="module"></script>

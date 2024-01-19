@@ -42,12 +42,26 @@ newEmployeeForm.addEventListener("submit", (e) => {
         departments
     }
 
-    alert(JSON.stringify(formData))
+    // alert(JSON.stringify(formData))
+    createEmployee(formData)
 
 })
 
-function createTimestamp(date){
+function createTimestamp(date) {
     const dateObject = date.split("-")
-    const timestamped = new Date(dateObject[0], dateObject[1]-1, dateObject[2]).getTime()
+    const timestamped = new Date(dateObject[0], dateObject[1] - 1, dateObject[2]).getTime()
     return timestamped
+}
+
+async function createEmployee(formData) {
+    const submitBtn = document.querySelector(".new-employee-btn")
+    const response = await fetch('/employees/new', {
+        method:'PUT',
+        headers:{
+            'Content-Type':'application/json',
+        },
+        body:JSON.stringify(formData)
+    })
+    const data = await response.json()
+    alert(JSON.stringify(data))
 }

@@ -125,12 +125,13 @@ async function employeeHTMLGenerator(employee) {
 
 
 async function newEmployeeGenerator() {
-    return `<form class="new-employee-container">
+    return `<form class="new-employee-container" id="new-employee-form" action="/dash" method="GET">
                 <div class="section">
                     <p class="info-heading">Personal Information</p>
+                    <label>New Employee Name</label>
                     <input type="text" placeholder="First Name" id="first-name" required>
                     <input type="text" placeholder="Last Name" id="last-name" required>
-                    <label>Date of Birth</label>
+                    <label for="dob">Date of Birth</label>
                     <div>
                         <input type="date" id="dob" required>
                     </div>
@@ -138,11 +139,21 @@ async function newEmployeeGenerator() {
 
                 <div class="section">
                     <p class="info-heading">Organization Information</p>
-                    <label>Date of Employment</label>
+                    <label for="doe">Date of Employment</label>
                     <div>
                         <input type="date" id="doe" required>
                     </div>
                     <label>Departments</label>
+                    <div id="employee-departments-container">
+                        <span class="departments-tag" id="1">Paediatric</span>
+                        <span class="departments-tag" id="2">Accident and Emergency</span>
+                        <select>
+                            <option>Add Department</option>
+                            <option>ENT</option>
+                            <option>Orthopedic</option>
+                        </select>
+                    </div>
+                    <button class="btn primary-btn">Create Employee</button> 
                 </div>
             </form>`
 }

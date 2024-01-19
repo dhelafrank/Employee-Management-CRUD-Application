@@ -15,7 +15,7 @@ ul {
 }
 
 .info-heading {
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 600;
 }
 
@@ -30,6 +30,8 @@ ul {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+    flex-wrap: wrap;
+    box-sizing: border-box;
 }
 
 .new-employee-container>div {
@@ -37,6 +39,10 @@ ul {
     align-items: flex-start;
     flex-direction: column;
     margin-bottom: 3rem;
+}
+
+.new-employee-container~div {
+    margin-right: 5rem;
 }
 
 .new-employee-container input {
@@ -62,8 +68,55 @@ ul {
     margin: .5rem 0 .3rem 0;
 }
 
+.new-employee-container button {
+    margin-top: 7rem;
+    justify-self: flex-start;
+}
+
+.new-employee-container #employee-departments-container {
+    border: .5px solid var(--light-color);
+    border-radius: 5px;
+    padding: .5rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 15rem;
+    overflow: scroll;
+}
+
+.new-employee-container #employee-departments-container * {
+    margin: 5px;
+}
+
+.new-employee-container #employee-departments-container .departments-tag {
+    background: color-mix(in srgb, var(--light-color), var(--dark-color) 20%);
+    padding: 3px 5px;
+    border-radius: 3px;
+}
+
+.new-employee-container #employee-departments-container select {
+    background: none;
+    color: var(--light-color);
+    outline: none;
+    font-family: var(--default-font-family);
+    cursor: pointer;
+    padding: 5px;
+}
+.new-employee-container #employee-departments-container select option{
+    background: color-mix(in srgb, var(--dark-color), #0000006e 70%);
+    cursor: pointer;
+}
+.new-employee-container #employee-departments-container::-webkit-scrollbar {
+    display: none;
+}
+
 @media (max-width:600px) {
     .employee-information-container {
         flex-direction: column;
+    }
+
+    .new-employee-container button {
+        margin-top: 3rem;
     }
 }

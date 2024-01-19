@@ -32,8 +32,6 @@ body {
     margin-right: 5rem;
 }
 
-
-
 @media(max-width:1000px) {
     .contents ul li div {
         width: 65svw;

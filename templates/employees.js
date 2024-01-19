@@ -7,7 +7,9 @@ const departments = new departmentsClass()
 
 const cardGenerator = require("./components/htmlCardGenerator")
 const nameSplitter = require("../utils/nameSplitter")
-const {timeFormmater} = require("../utils/timestampConverter")
+const {
+    timeFormmater
+} = require("../utils/timestampConverter")
 
 class employeesTemplate {
     menu() {
@@ -42,6 +44,9 @@ class employeesTemplate {
         const nameObject = nameSplitter(name)
         let contentReturned = await individualContentDecider(nameObject)
         return contentReturned
+    }
+    async newEmployee() {
+        return await newEmployeeGenerator()
     }
 }
 
@@ -80,19 +85,20 @@ async function employeeHTMLGenerator(employee) {
     let employeeDepartments = employee.departments
     async function departmentComponent(departmentArray) {
         let listElement = '';
-    
+
         for (const index of departmentArray) {
             const departmentGotten = await departments.departmentByIndex(index);
             let departmentElement = `<li class="departments-list">${departmentGotten.name}</li>`;
             listElement += departmentElement;
         }
-    
+
         return `
         <ul class="info-content">
             ${listElement}
         </ul>
         `
     }
+
     return `<div class="employee-information-container">
                 <div class="section-one">
                     <p class="info-heading">Departments</p>
@@ -115,8 +121,32 @@ async function employeeHTMLGenerator(employee) {
                 <button class="btn negative-btn">Delete Employee  <i class="fa-solid fa-trash-can"></i></button>
             </div>
             `
-    // return JSON.stringify(employee)
 }
+
+
+async function newEmployeeGenerator() {
+    return `<form class="new-employee-container">
+                <div class="section">
+                    <p class="info-heading">Personal Information</p>
+                    <input type="text" placeholder="First Name" id="first-name" required>
+                    <input type="text" placeholder="Last Name" id="last-name" required>
+                    <label>Date of Birth</label>
+                    <div>
+                        <input type="date" id="dob" required>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <p class="info-heading">Organization Information</p>
+                    <label>Date of Employment</label>
+                    <div>
+                        <input type="date" id="doe" required>
+                    </div>
+                    <label>Departments</label>
+                </div>
+            </form>`
+}
+
 const employeesTemp = new employeesTemplate()
 
 module.exports = employeesTemp

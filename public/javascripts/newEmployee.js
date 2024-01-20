@@ -75,14 +75,14 @@ async function createEmployee(formData) {
 
 function responseDecider(submitBtn, response) {
     if ((response.status) == true) {
-        toast(response.message, "#5cb85c")
+        toast(response.message, "success")
         setTimeout(() => {
             window.location.href = `/employees/${response.data[0]}`
         }, 2000)
         submitBtn.innerHTML = "Create Employee"
         return
     }
-    toast(response.message, "#d9534f")
+    toast(response.message, "danger")
     submitBtn.innerHTML = "Create Employee"
 
 }

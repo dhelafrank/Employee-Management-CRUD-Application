@@ -117,10 +117,10 @@ async function employeeHTMLGenerator(employee) {
                 </div>
             </div>
             <div class="action-btn-container">
-                <button class="btn primary-btn">Edit Employee  <i class="fa-solid fa-pencil"></i></button>
-                <button class="btn negative-btn">Delete Employee  <i class="fa-solid fa-trash-can"></i></button>
+                <button class="btn primary-btn edit-employee-btn" employee-id="${employee._id}">Edit Employee  <i class="fa-solid fa-pencil"></i></button>
+                <button class="btn negative-btn delete-employee-btn" employee-id="${employee._id}" employee-name="${employee.firstName}">Delete Employee  <i class="fa-solid fa-trash-can"></i></button>
             </div>
-            <script src="/javascripts/individualEmployee" type="module"></script>
+            <script src="/javascripts/individualEmployee.js" type="module"></script>
             `
 }
 

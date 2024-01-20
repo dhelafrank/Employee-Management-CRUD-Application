@@ -6,7 +6,7 @@
     width: 100dvw;
     position: absolute;
     background: color-mix(in srgb, var(--dark-color), #00000000 30%);
-    transition: .5s ease-in-out;
+    transition: .5s ease-in-out all;
     opacity: 0;
 }
 .modal-container .modal-body{
@@ -14,7 +14,7 @@
     border-radius: 5px;
     padding: 1rem;
     min-width: 15rem;
-    max-width: 20rem;
+    max-width: 25rem;
 }
 .modal-container .modal-body .modal-header{
     display: flex;
@@ -23,6 +23,7 @@
 }
 .modal-container .modal-body .modal-header h3{
     margin: 0;
+    margin-right: 3rem;
 }
 .modal-container .modal-body .modal-header .fa-xmark{
     color: color-mix(in srgb, var(--dark-color) 30%, #d9534f);

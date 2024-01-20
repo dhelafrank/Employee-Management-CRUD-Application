@@ -33,10 +33,11 @@ router.post("/edit/:id", async (req, res, next) => {
     }
 })
 
-router.delete("/delete/:id", async (req, res, next) => {
+router.delete("/delete", async (req, res, next) => {
+    console.log(req.body.id);
     try {
-        await employees.all((responseData) => {
-
+        await employees.delete(req.body.id, (responseData) => {
+            res.json(responseData)
         })
     } catch (error) {
         console.log(error);

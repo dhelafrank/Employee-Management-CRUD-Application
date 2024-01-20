@@ -120,6 +120,7 @@ async function employeeHTMLGenerator(employee) {
                 <button class="btn primary-btn">Edit Employee  <i class="fa-solid fa-pencil"></i></button>
                 <button class="btn negative-btn">Delete Employee  <i class="fa-solid fa-trash-can"></i></button>
             </div>
+            <script src="/javascripts/individualEmployee" type="module"></script>
             `
 }
 

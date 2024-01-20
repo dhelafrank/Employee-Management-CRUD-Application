@@ -1,0 +1,31 @@
+.modal-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100dvh;
+    width: 100dvw;
+    position: absolute;
+    background: color-mix(in srgb, var(--dark-color), #00000000 30%);
+    transition: .5s ease-in-out;
+    opacity: 0;
+}
+.modal-container .modal-body{
+    background: var(--light-color);
+    border-radius: 5px;
+    padding: 1rem;
+    min-width: 15rem;
+    max-width: 20rem;
+}
+.modal-container .modal-body .modal-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.modal-container .modal-body .modal-header h3{
+    margin: 0;
+}
+.modal-container .modal-body .modal-header .fa-xmark{
+    color: color-mix(in srgb, var(--dark-color) 30%, #d9534f);
+    cursor: pointer;
+    font-size: 1.3rem;
+}

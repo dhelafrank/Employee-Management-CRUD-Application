@@ -15,10 +15,9 @@ router.get("/all", async (req, res, next) => {
 
 router.put("/new", async (req, res, next) => {
     try {
-        // await employees.all((responseData) => {
-
-        // })
-        res.json(req.body)
+        await employees.createNew(req.body, (responseData) => {
+            res.json(responseData)
+        })
     } catch (error) {
         console.log(error);
     }

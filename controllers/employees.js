@@ -36,7 +36,7 @@ class employeesClass {
             callback({
                 status: true,
                 message: "Employee Created Succesfully",
-                data: []
+                data: [`${data.firstName} ${data.lastName}`]
             })
         } catch (error) {
             console.log(error);
@@ -66,6 +66,7 @@ class employeesClass {
             })
         }
     }
+
     async update(data, callback) {
         try {
             await employees.findOneAndUpdate(data)
@@ -84,6 +85,7 @@ class employeesClass {
         }
 
     }
+
     async view(nameObject, callback) {
         const {firstName, lastName} = nameObject
         try {
@@ -103,16 +105,14 @@ class employeesClass {
             })
         }
     }
+
     async perDepartment(departmentId) {
-        // console.log(`\n\n\nTotal PerDepartment Requested \n\n\n`);
         try {
             const employeesArray = await employees.find({
                 departments: {
                     $in: [departmentId]
                 }
             })
-
-            // console.log(`\n\n\nEmployee for each department found ${employeesArray} \n\n\n`);
             return employeesArray
         } catch (error) {
             console.log(error);

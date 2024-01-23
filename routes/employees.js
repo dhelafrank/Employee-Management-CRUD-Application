@@ -23,10 +23,11 @@ router.put("/new", async (req, res, next) => {
     }
 })
 
-router.post("/edit/:id", async (req, res, next) => {
-    try {
-        await employees.all((responseData) => {
 
+router.post("/update/:id", async (req, res, next) => {
+    try {
+        await employees.update(req.body, (responseData) => {
+            res.json(responseData)
         })
     } catch (error) {
         console.log(error);
@@ -34,7 +35,6 @@ router.post("/edit/:id", async (req, res, next) => {
 })
 
 router.delete("/delete", async (req, res, next) => {
-    console.log(req.body.id);
     try {
         await employees.delete(req.body.id, (responseData) => {
             res.json(responseData)
@@ -44,14 +44,6 @@ router.delete("/delete", async (req, res, next) => {
     }
 })
 
-router.get("/view/:id", async (req, res, next) => {
-    try {
-        await employees.all((responseData) => {
 
-        })
-    } catch (error) {
-        console.log(error);
-    }
-})
 
 module.exports = router

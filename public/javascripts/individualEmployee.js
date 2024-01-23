@@ -8,6 +8,9 @@ const modal = new modalClass()
 
 const deleteBtn = document.querySelector(".delete-employee-btn")
 const editBtn = document.querySelector(".edit-employee-btn")
+editBtn.addEventListener("click", (e)=>{
+    window.location.href=`/employees/edit/${(e.target).getAttribute("employee")}`
+})
 
 deleteBtn.addEventListener("click", (e) => {
     modal.open("Employee Deletion Confirmation", `<p>Are you sure you want to delete ${(e.target).getAttribute("employee-name")}?</p>

@@ -10,7 +10,7 @@ function timestampToYYYYMMDD(timestamp) {
     }
 }
 
-function timeFormmater(timestamp) {
+function timeFormatter(timestamp) {
     const {
         year,
         month,
@@ -18,4 +18,17 @@ function timeFormmater(timestamp) {
     } = timestampToYYYYMMDD(timestamp)
     return `${day}/${month}/${year}`;
 }
-module.exports = {timestampToYYYYMMDD, timeFormmater}
+
+function htmlTimeFormat(timestamp) {
+    const {
+        year,
+        month,
+        day
+    } = timestampToYYYYMMDD(timestamp)
+    return `${year}-${month}-${day}`;
+}
+module.exports = {
+    timestampToYYYYMMDD,
+    timeFormatter,
+    htmlTimeFormat
+}

@@ -69,27 +69,34 @@ class employeesClass {
 
     async update(data, callback) {
         try {
-            await employees.findOneAndUpdate(data)
+            const result = await employees.findOneAndUpdate({ _id: data._id }, data, { new: true });            
+            
             callback({
                 status: true,
                 message: "Employee Information Updated Successfully",
-                data: []
-            })
+                data: [result]
+            });
         } catch (error) {
             console.log(error);
             callback({
                 status: false,
                 message: "Internal Server Error",
                 data: []
-            })
+            });
         }
 
     }
 
     async view(nameObject, callback) {
-        const {firstName, lastName} = nameObject
+        const {
+            firstName,
+            lastName
+        } = nameObject
         try {
-            const employee = await employees.find({firstName, lastName})
+            const employee = await employees.find({
+                firstName,
+                lastName
+            })
             callback({
                 status: true,
                 message: "Employee Found",

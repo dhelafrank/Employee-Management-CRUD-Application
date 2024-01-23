@@ -51,6 +51,11 @@ router.get('/departments', validationMiddleware, async (req, res, next) => {
   });
 });
 
+
+
+
+
+
 // Renders Individaual Employee Screen by Name
 router.get('/employees/new', validationMiddleware, async (req, res, next) => {
   res.render('dash', {
@@ -65,7 +70,7 @@ router.get('/employees/new', validationMiddleware, async (req, res, next) => {
 
 // Renders Individaual Employee Screen by Name
 router.get('/employees/:name', validationMiddleware, async (req, res, next) => {
-  const employeeObject = await employeesTemp.individualContents(req.params.name)
+  const employeeObject = await employeesTemp.individualEmployee(req.params.name)
   const {screenTitle, contents} = employeeObject
 
   // console.log(`EJS Object from route ${JSON.stringify(await employeeObject)}`);
@@ -88,8 +93,28 @@ router.get('/departments/:name', validationMiddleware, async (req, res, next) =>
     screenTitle: "Departments",
     menu: departmentsTemp.menu(),
     quickActionBtn:departmentsTemp.quickActionBtn(),
-    contents: await departmentsTemp.individualContents()
+    contents: await departmentsTemp.individualEmployee()
   });
 });
+
+
+
+
+//Renders Employee Edit Screen
+router.get('/employees/edit/:name', validationMiddleware, async (req, res, next) => {
+  const employeeObject = await employeesTemp.editEmployee(req.params.name)
+  const {screenTitle, contents} = employeeObject
+
+  // console.log(`EJS Object from route ${JSON.stringify(await employeeObject)}`);
+  res.render('dash', {
+    organisation: process.env.ORGANISATION_NAME,
+    projectName: process.env.PROJECT_NAME,
+    screenTitle,
+    menu: employeesTemp.menu(),
+    quickActionBtn:``,
+    contents,
+  });
+});
+
 
 module.exports = router;

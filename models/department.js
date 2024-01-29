@@ -4,7 +4,7 @@ const departmentsSchema = new mongoose.Schema({
     _id: {
         type: Number
     },
-    name: { 
+    name: {
         type: String,
         required: true
     },
@@ -12,9 +12,14 @@ const departmentsSchema = new mongoose.Schema({
         type: Number,
         default: Date.now()
     },
-    maxEmployees:{
-        type:Number,
-        required:true
+    maxEmployees: {
+        type: Number,
+        required: true
+    },
+    createdAt: {
+        type: Number,
+        default: Date.now(),
+        required: true,
     }
 })
 

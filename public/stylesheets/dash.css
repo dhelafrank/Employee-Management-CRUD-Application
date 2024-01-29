@@ -6,7 +6,9 @@
 body {
     background: color-mix(in srgb, var(--dark-color) 60%, var(--light-color));
 }
-
+.contents ul{
+    margin-bottom: 3rem;
+}
 .contents ul li {
     margin: 1rem 0;
     cursor: pointer;

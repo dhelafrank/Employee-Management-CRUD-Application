@@ -42,20 +42,26 @@ class departmentsClass {
 
         }
     }
-    view() {
+    async view(searchQuery, callback) {
         try {
-
+            const department = await departments.find(searchQuery)
+            callback({
+                status: true,
+                message: "department Found",
+                data: department
+            })
+            return department
         } catch (error) {
-
+            console.log(error);
+            callback({
+                status: false,
+                message: "Internal Server Error",
+                data: []
+            })
         }
     }
     async departmentByIndex(index) {
         try {
-            // let responseData = await this.all((data)=>{})
-                // let sortedDepartments = responseData.sort((a, b) => {
-                    // return a._id - b._id
-                // })
-
                 const departmentGotten = await departments.find({_id:index})
                 return departmentGotten[0]
         } catch (error) {

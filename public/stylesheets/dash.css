@@ -32,7 +32,9 @@ body {
 .contents ul li div .name {
     margin-right: 5rem;
 }
-
+a{
+    color:var(--dark-color)
+}
 @media(max-width:1000px) {
     .contents ul li div {
         width: 65svw;

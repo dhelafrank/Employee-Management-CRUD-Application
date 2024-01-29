@@ -17,13 +17,14 @@ deleteBtn.addEventListener("click", (e) => {
                         <button class="btn primary-btn" id="final-employee-deletion-confirmation-btn" employee-id="${(e.target).getAttribute("employee-id")}">Confirm</button>`)
 
     document.getElementById("final-employee-deletion-confirmation-btn").addEventListener("click", (e) => {
-        deleteEvent((e.target).getAttribute("employee-id"))
+        deleteEvent((e.target).getAttribute("employee-id"), e.target)
     })
 })
 
 
-async function deleteEvent(id) {
+async function deleteEvent(id, btn) {
     try {
+        btn.innerHTML = "Deleting.."
         const response = await fetch("/employees/delete", {
             method: 'DELETE',
             headers: {
@@ -40,6 +41,7 @@ async function deleteEvent(id) {
         }
         toast(data.message, "danger")
     } catch (error) {
+        btn.innerHTML = "Confirm"
         toast("An Error occured, request could not be made", "danger")
     }
 }

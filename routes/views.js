@@ -87,13 +87,15 @@ router.get('/employees/:name', validationMiddleware, async (req, res, next) => {
 
 // Renders Individual Department Screen by Name
 router.get('/departments/:name', validationMiddleware, async (req, res, next) => {
+  const departmentObject = await departmentsTemp.individualDepartment(req.params.name)
+  const {screenTitle, contents} = departmentObject
   res.render('dash', {
     organisation: process.env.ORGANISATION_NAME,
     projectName: process.env.PROJECT_NAME,
-    screenTitle: "Departments",
+    screenTitle,
     menu: departmentsTemp.menu(),
-    quickActionBtn:departmentsTemp.quickActionBtn(),
-    contents: await departmentsTemp.individualEmployee()
+    quickActionBtn:``,
+    contents,
   });
 });
 

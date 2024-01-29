@@ -34,22 +34,6 @@ init([{
 }])
 
 
-let firstName = document.getElementById("first-name").value
-let otherNames = ""
-let lastName = document.getElementById("last-name").value
-let dateOfBirth = UpdateTimestamp(document.getElementById("dob").value)
-let dateOfEmployment = UpdateTimestamp(document.getElementById("doe").value)
-let departments = employeeDepartments.sort()
-
-const formData = {
-    firstName,
-    otherNames,
-    lastName,
-    dateOfBirth,
-    dateOfEmployment,
-    departments
-}
-
 function UpdateTimestamp(date) {
     const dateObject = date.split("-")
     const timestamped = new Date(dateObject[0], dateObject[1] - 1, dateObject[2]).getTime()
@@ -113,7 +97,6 @@ function responseDecider(updateBtn, response) {
         setTimeout(() => {
             window.location.href = `/employees/${response.data[0].firstName} ${response.data[0].lastName}`
         }, 2000)
-        updateBtn.innerHTML = "Confirm"
         return
     }
     toast(response.message, "danger")

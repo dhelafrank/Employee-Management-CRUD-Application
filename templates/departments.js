@@ -1,5 +1,9 @@
 const departmentsClass = require('../controllers/departments')
 const cardGenerator = require("./components/htmlCardGenerator")
+const {
+    individualDepartmentDecider
+} = require("./components/departmentsTemplateFunctions")
+
 const departments = new departmentsClass()
 
 let allDepartments = ""
@@ -30,10 +34,11 @@ class departmentsTemplate {
         `
     }
 
-    async individualContents() {
-        return `${await individualContentDecider()}`
+    async individualDepartment(nameString) {
+        let contentReturned = await individualDepartmentDecider(nameString);
+        return contentReturned;
     }
-    quickActionBtn(){
+    quickActionBtn() {
         return `<a href="/departments/new" class="btn primary-btn">New Department</a>`
     }
 
@@ -46,9 +51,6 @@ async function mainContents() {
 
 }
 
-async function individualContentDecider() {
-    return `<h2>Department Does not Exist</h2>`
-}
 const departmentsTemp = new departmentsTemplate()
 
 module.exports = departmentsTemp

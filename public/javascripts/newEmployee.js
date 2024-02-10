@@ -52,6 +52,7 @@ newEmployeeForm.addEventListener("submit", (e) => {
     createEmployee(formData)
 
 })
+export function init(){}
 
 function createTimestamp(date) {
     const dateObject = date.split("-")

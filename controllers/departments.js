@@ -28,11 +28,24 @@ class departmentsClass {
         }
     }
 
-    createNew(data) {
+    async createNew(data, callback) {
+        data._id = Date.now() - 2000
+        data.maxEmployees = 10
         try {
-
+            const newDepartment = new departments(data)
+            await newDepartment.save()
+            callback({
+                status: true,
+                message: "Department Created Succesfully",
+                data: [`${data.name}`]
+            })
         } catch (error) {
-
+            console.log(error);
+            callback({
+                status: false,
+                message: "Internal Server Error",
+                data: []
+            })
         }
     }
     delete(id) {

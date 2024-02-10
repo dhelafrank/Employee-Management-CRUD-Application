@@ -84,6 +84,18 @@ router.get('/employees/:name', validationMiddleware, async (req, res, next) => {
   });
 });
 
+// Renders New Department Screen
+router.get('/departments/new', validationMiddleware, async (req, res, next) => {
+  res.render('dash', {
+    organisation: process.env.ORGANISATION_NAME,
+    projectName: process.env.PROJECT_NAME,
+    screenTitle:"New Department",
+    menu: departmentsTemp.menu(),
+    quickActionBtn:``,
+    contents:await departmentsTemp.newDepartment(),
+  });
+});
+
 
 // Renders Individual Department Screen by Name
 router.get('/departments/:name', validationMiddleware, async (req, res, next) => {

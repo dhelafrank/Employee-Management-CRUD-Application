@@ -9,8 +9,7 @@ class dashTemplate {
 
     contents() {
         return `
-        <h3>No Information Found</h3>
-       
+        <h3>Information regarding employees and departments is resetted frequently according to the product document</h3>
         `
     }
 }

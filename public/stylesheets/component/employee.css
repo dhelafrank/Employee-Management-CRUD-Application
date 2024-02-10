@@ -23,9 +23,6 @@ ul {
     margin-top: 2rem;
 }
 
-
-
-
 .new-employee-container {
     display: flex;
     align-items: flex-start;
@@ -43,21 +40,6 @@ ul {
 
 .new-employee-container~div {
     margin-right: 5rem;
-}
-
-.new-employee-container input {
-    background: transparent;
-    border: .5px solid var(--light-color);
-    color: var(--light-color);
-    border-radius: 5px;
-    padding: .5rem .3rem;
-    margin-bottom: .5rem;
-    outline: none;
-    font-family: var(--default-font-family);
-}
-
-.new-employee-container input::placeholder {
-    color: color-mix(in srgb, var(--light-color) 80%, var(--dark-color));
 }
 
 .new-employee-container input[type="date"] {

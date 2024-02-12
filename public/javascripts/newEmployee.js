@@ -6,27 +6,12 @@ import {
     toast
 } from "./component/toast.js"
 
-init([{
-    "_id": 1,
-    "name": "General Dentistry",
-    "maxEmployees": 10
-}, {
-    "_id": 2,
-    "name": "Pediatric Dentistry",
-    "maxEmployees": 8
-}, {
-    "_id": 3,
-    "name": "Restorative Dentistry",
-    "maxEmployees": 12
-}, {
-    "_id": 4,
-    "name": "Surgery",
-    "maxEmployees": 15
-}, {
-    "_id": 5,
-    "name": "Orthodontics",
-    "maxEmployees": 10
-}])
+try {
+    let departmentsResponse = await fetch('/departments/all').then(res => res.json())   
+    init(await departmentsResponse.data)
+} catch (error) {
+    console.log(error);
+}
 
 let newEmployeeForm = document.getElementById("new-employee-form")
 newEmployeeForm.addEventListener("submit", (e) => {
@@ -52,7 +37,6 @@ newEmployeeForm.addEventListener("submit", (e) => {
     createEmployee(formData)
 
 })
-export function init(){}
 
 function createTimestamp(date) {
     const dateObject = date.split("-")

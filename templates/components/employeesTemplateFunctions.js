@@ -93,8 +93,6 @@ async function newEmployeeGenerator() {
                     </div>
                     <label>Departments</label>
                     <div id="employee-departments-container">
-                        <!-- <span class="departments-tag" department-id="1">Paediatric <i class="fa-solid fa-xmark remove-tag"></i></span>
-                        <span class="departments-tag" department-id="2">Accident and Emergency <i class="fa-solid fa-xmark remove-tag"></i></span> -->
                         <select id="tag-options">
                             <option value="0">Add Department</option>
                         </select>

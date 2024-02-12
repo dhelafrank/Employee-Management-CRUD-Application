@@ -4,6 +4,23 @@ const departmentsClass = require('../controllers/departments')
 
 const departments = new departmentsClass()
 
+router.get("/all", async (req, res, next) => {
+
+    try {
+        await departments.all((responseData) => {
+            res.json(responseData)
+        })
+
+    } catch (error) {
+        res.json({
+            status: false,
+            message: "Something went wrong, please try again later",
+            data: []
+        })
+        console.log(error);
+    }
+})
+
 router.put("/new", async (req, res, next) => {
     const {
         departmentName

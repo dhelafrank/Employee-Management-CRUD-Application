@@ -40,16 +40,20 @@ async function departmentHTMLGenerator(deptObj) {
     </div>
     <div class="action-btn-container">
         <button class="btn primary-btn edit-department-btn" employee="${deptObj.name}">Edit Department  <i class="fa-solid fa-pencil"></i></button>
-        <button class="btn negative-btn delete-department-btn" employee-id="${deptObj._id}" employee-name="${deptObj.name}">Delete Department  <i class="fa-solid fa-trash-can"></i></button>
+        <button class="btn negative-btn delete-department-btn" employee-id="${deptObj._id}" department-name="${deptObj.name}">Delete Department  <i class="fa-solid fa-trash-can"></i></button>
     </div>
 
     <script type="module">
+    import {deleteDepartment} from "/javascripts/department.js"
     document.querySelectorAll(".employee-card").forEach(card => {
         card.addEventListener("click", (e) => {
             let employeeName = card.querySelector(".name").innerHTML;
             window.location.href = \`/employees/\${employeeName}\`;
         });
     });
+     document.querySelector(".delete-department-btn").addEventListener("click", (e)=>{
+         deleteDepartment((e.target).getAttribute( "department-name"))
+     })
     </script>
     `
 }

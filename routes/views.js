@@ -111,9 +111,6 @@ router.get('/departments/:name', validationMiddleware, async (req, res, next) =>
   });
 });
 
-
-
-
 //Renders Employee Edit Screen
 router.get('/employees/edit/:name', validationMiddleware, async (req, res, next) => {
   const employeeObject = await employeesTemp.editEmployee(req.params.name)

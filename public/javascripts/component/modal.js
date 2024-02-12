@@ -25,6 +25,9 @@ export class modalClass {
     }
 
     open(heading, content) {
+        if(document.querySelector('.modal-container')){
+            return
+        }
         document.body.insertAdjacentHTML("afterbegin", this.modalElement(heading, content))
         let {
             modalContainer,

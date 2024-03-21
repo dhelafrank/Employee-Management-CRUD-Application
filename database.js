@@ -10,8 +10,9 @@ async function connectToDatabase(log) {
         console.log(`Database Connection Successful: ${log || ""}`);
         resetDatas()
     }).catch((err) => {
-        console.log("Database Connection Error");
+        console.error("Database Connection Error");
         console.log(err);
+        process.exit()
     })
 }
 module.exports = {

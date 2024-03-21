@@ -46,7 +46,7 @@ function responseDecider(submitBtn, btnFirstState, response) {
 export async function deleteDepartment(departmentName) {
     let modalContents = `
     <div>
-        <p>Would you want to delete ${departmentName}
+        <p>Would you want to delete ${departmentName}?
         <button class="btn primary-btn departmentEventButton" style="margin-top: 2rem" department-name="${departmentName}">Confirm</button>
     </div>
     `

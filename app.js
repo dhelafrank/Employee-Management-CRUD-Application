@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const {connectToDatabase} = require("./database")
+const{connectToDatabase}= require('./database')
 
 var viewRouter = require('./routes/views');
 var authRouter = require('./routes/auth');
@@ -13,7 +13,6 @@ var departmentsRouter = require('./routes/departments')
 var app = express();
 const PORT = process.env.PORT || 3000
 
-connectToDatabase("You are good to go")
 
 
 // view engine setup
@@ -47,7 +46,9 @@ app.use('/auth', authRouter);
 //   res.render('error');
 // });
 
-app.listen(PORT, ()=>{
+app.listen(PORT, async ()=>{
+  console.log(`\n\nServer is starting...`);
+  await connectToDatabase("You are good to go")
   console.log(`Server is now listening on port ${PORT}`)
 })
 module.exports = app;
